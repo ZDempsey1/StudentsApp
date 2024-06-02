@@ -1,0 +1,65 @@
+﻿@page "/addStudent"
+<h3>Add New Student</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <EditForm Model=student FormName="addStudent">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">First Name</label>
+                            <InputText for="FirstName" class="form-control" @bind-Value="@student.FirstName"></InputText>
+                            <ValidationMessage For="()=>student.FirstName" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Middle Name</label>
+                            <InputText for="MiddleName" class="form-control" @bind-Value="@student.MiddleName"></InputText>
+                            <ValidationMessage For="()=>student.MiddleName" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Last Name</label>
+                            <InputText for="LastName" class="form-control" @bind-Value="@student.LastName"></InputText>
+                            <ValidationMessage For="()=>student.LastName" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Email Address</label>
+                            <InputText for="EmailAddress" class="form-control" @bind-Value="@student.EmailAddress"></InputText>
+                            <ValidationMessage For="()=>student.EmailAddress" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Gender</label>
+                            <InputText for="Gender" class="form-control" @bind-Value="@student.Gender"></InputText>
+                            <ValidationMessage For="()=>student.Gender" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Date of Birth</label>
+                            <InputDate for="DateOfBirth" class="form-control" @bind-Value="@student.DateOfBirth"></InputDate>
+                            <ValidationMessage For="()=>student.DateOfBirth" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary float-end">Save Student</button>
+                    <a href="/studenlist" class="btn btn-danger float-start">Back to Students</a>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+</div>
+@code {
+    [SupplyParameterFromForm]
+    public Student student { get; set; } = new();
+}

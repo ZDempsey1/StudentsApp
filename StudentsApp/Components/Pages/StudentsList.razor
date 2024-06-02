@@ -1,0 +1,47 @@
+﻿@page "/studentslist"
+
+<h1>Students List</h1>
+
+@if (students == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <p><a class="btn btn-success" href="/addStudent"></a>Add New Student</p>
+        <div class="col-md-12">
+
+        </div>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in students)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.MiddleName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Gender</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+ @code {
+    private List<Student> students = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+       students = App.Database.GetTableRows<Student>("Student");
+    }       
+}
