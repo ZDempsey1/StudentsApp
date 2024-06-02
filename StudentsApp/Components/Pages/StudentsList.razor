@@ -9,7 +9,7 @@
 else
 {
     <div class="row">
-        <p><a class="btn btn-success" href="/addStudent"></a>Add New Student</p>
+        <p><a class="btn btn-success" href="/addStudent">Add New Student</a></p>
         <div class="col-md-12">
 
         </div>
@@ -21,6 +21,8 @@ else
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Gender</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +33,8 @@ else
                     <td>@student.MiddleName</td>
                     <td>@student.LastName</td>
                     <td>@student.Gender</td>
+                    <td><a href="/editStudent/@student.Id" class="btn btn-primary">Edit</a></td>
+                    <td><a href="/deleteStudent/@student.Id" class="btn btn-danger">Delete</a></td>
                 </tr>
             }
         </tbody>
